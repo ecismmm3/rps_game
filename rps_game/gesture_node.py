@@ -12,7 +12,7 @@ class GestureNode(Node):
         super().__init__('gesture_node')
         self.publisher_ = self.create_publisher(String, '/player_gesture', 10)
         self.timer = self.create_timer(0.2, self.publish_gesture)
-        self.gesture_file = '/mnt/c/Users/Ethan Chen/gesture.txt'
+        self.gesture_file = 'YOUR FILE NAME'
         self.get_logger().info('Gesture node ready.')
 
     def publish_gesture(self):
