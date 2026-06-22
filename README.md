@@ -73,7 +73,7 @@ Launch the ROS2 pipeline in WSL2:
 ros2 launch rps_game game.launch.py
 ```
 
-RViz2 will open automatically with the robot configured. The game runs automatically — hold up rock, paper, or scissors and watch the robot respond.
+RViz2 will open automatically with the robot configured. You can now play as many rounds as you would like against the robot.
 
 
 
