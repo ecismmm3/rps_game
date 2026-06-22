@@ -4,7 +4,7 @@ An interactive Rock-Paper-Scissors game using ROS2 where a computer vision model
 
 ## Overview
 
-Built to learn the fundamentals of robotics in ROS2, computer vision, and machine learning-based classification. An OpenCV script reads webcam input frame by frame, runs each frame through a PyTorch EfficientNet-B0 model trained on 600+ images to classify rock, paper, or scissors, and writes the result to a shared communications file. On the ROS2 side, a 5-node pipeline reads the classification, runs automated game rounds with a countdown sequence, and drives a custom URDF robot arm in RViz2 to display the computer's randomized move.
+Built to learn the fundamentals of robotics in ROS2, computer vision, and machine learning-based classification. An OpenCV script reads webcam input frame by frame, runs each frame through a PyTorch model to classify rock, paper, or scissors, and writes the result to a shared communications file. On the ROS2 side, a 5-node pipeline reads the classification, runs automated game rounds with a countdown sequence, and drives a custom URDF robot arm in RViz2 to display the computer's randomized move.
 
 ## Tech Stack
 
