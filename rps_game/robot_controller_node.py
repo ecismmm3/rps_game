@@ -29,7 +29,6 @@ SCISSORS_CONFIG = {
     5: (0.0, CURL, CURL),
 }
 
-# finger positions only (no arm joints yet)
 ROCK_FINGERS     = make_finger_positions(ROCK_CONFIG)
 PAPER_FINGERS    = make_finger_positions(PAPER_CONFIG)
 SCISSORS_FINGERS = make_finger_positions(SCISSORS_CONFIG)
@@ -48,15 +47,13 @@ class RobotControllerNode(Node):
             String, '/robot_choice', self.choice_callback, 10)
 
         self.joint_pub = self.create_publisher(JointState, '/joint_states', 10)
-        self.timer = self.create_timer(0.05, self.publish_current_pose)  # 20hz
+        self.timer = self.create_timer(0.05, self.publish_current_pose) 
 
-        # arm state
         self.forearm_angle = 0.0
         self.wrist_angle = 0.0
         self.finger_positions = PAPER_FINGERS  # default open hand
-
-        # countdown animation state
-        self.mode = 'idle'          # idle, countdown, result
+        
+        self.mode = 'idle' # idle, countdown, result
         self.countdown_start = 0.0
         self.result_choice = 'paper'
 
@@ -69,20 +66,17 @@ class RobotControllerNode(Node):
         word = msg.data
 
         if word in ('rock', 'paper', 'scissors'):
-            # start/continue rhythmic bounce with rock fingers
             self.mode = 'countdown'
             self.countdown_start = time.time()
             self.finger_positions = ROCK_FINGERS
             self.wrist_angle = 0.0
 
         elif word == 'shoot':
-            # one final bounce then hold result pose
             self.mode = 'shoot'
             self.countdown_start = time.time()
 
     def choice_callback(self, msg):
         self.result_choice = msg.data
-        # store result fingers and wrist for after shoot animation
         if msg.data == 'rock':
             self.result_fingers = ROCK_FINGERS
             self.result_wrist = 0.0
@@ -112,13 +106,10 @@ class RobotControllerNode(Node):
                 self.finger_positions = ROCK_FINGERS
                 self.wrist_angle = 0.0
             else:
-                # animation done — snap to result pose
                 self.mode = 'result'
                 self.forearm_angle = 0.8
                 self.finger_positions = self.result_fingers
                 self.wrist_angle = self.result_wrist
-
-        # result mode — just hold whatever is set, don't touch anything
 
         msg = JointState()
         msg.header.stamp = self.get_clock().now().to_msg()
