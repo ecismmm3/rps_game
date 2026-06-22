@@ -23,25 +23,6 @@ ROS2 • RViz2 • PyTorch • OpenCV • Python • URDF
 - Tuned the model multiple times to achieve consistent accuracy — adjusted lighting, backgrounds, learning rate, and epoch count, and addressed overfitting
 - Webcam passthrough was inaccessible in WSL2 via usbipd; pivoted to a shared file bridge between the Windows inference script and the ROS2 gesture node
 
-## Project Structure
-
-rps_game/
-├── windows/
-│   ├── train.py                   # train your own gesture classification model
-│   └── gesture_detection.py       # real-time inference + WSL2 file bridge
-├── rps_game/
-│   ├── gesture_node.py            # reads shared file, publishes /player_gesture
-│   ├── game_logic_node.py         # countdown, scoring, publishes /robot_choice
-│   └── robot_controller_node.py   # drives robot arm joints based on game state
-├── launch/
-│   └── game.launch.py             # launches all nodes + RViz2
-├── urdf/
-│   └── rps_robot.urdf             # custom robot hand model
-├── config/
-│   └── rviz_config.rviz           # RViz2 display configuration
-├── setup.py
-└── package.xml
-
 ## Requirements
 
 ### Windows side
