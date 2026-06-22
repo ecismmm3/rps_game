@@ -1,0 +1,20 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    joint_state_broadcaster: # reads joint positions from Gazebo, broadcasts to /joint_states
+      type: joint_state_broadcaster/JointStateBroadcaster 
+
+    arm_controller: # turns movement commands into new joint positions
+      type: joint_trajectory_controller/JointTrajectoryController
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - base_to_forearm
+      - forearm_to_hand
+    command_interfaces: # to set
+      - position
+    state_interfaces: # to read back
+      - position
+      - velocity
