@@ -4,7 +4,7 @@
   <name>rps_game</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="ecism@todo.todo">ecism</maintainer>
+  <maintainer email="eth.chen21@gmail.com">ecism</maintainer>
   <license>TODO: License declaration</license>
 
   <exec_depend>rclpy</exec_depend>
