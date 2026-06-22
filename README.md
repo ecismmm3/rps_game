@@ -38,22 +38,8 @@ ROS2 • RViz2 • PyTorch • OpenCV • Python • URDF
 ## Setup
 
 ### 1. Train your model (Windows)
-
-Organize your dataset:
-
-dataset/
-├── train/
-│   ├── paper/
-│   ├── rock/
-│   └── scissors/
-└── val/
-    ├── paper/
-    ├── rock/
-    └── scissors/
-
-Run: train.py
-
-Note the class order printed at the end and update `CLASS_NAMES` in `gesture_detection.py` to match.
+- Instructions in windows/train_val.py
+- Note the class order printed at the end and update `CLASS_NAMES` in `gesture_detection.py` to match.
 
 ### 2. Configure the file bridge
 
