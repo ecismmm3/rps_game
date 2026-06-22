@@ -33,20 +33,17 @@ class GameLogicNode(Node):
         self.robot_score = 0
         self.latest_gesture = 'rock'
 
-        # game state
-        self.state = 'waiting'      # waiting, countdown, result_pause
+        self.state = 'waiting'
         self.countdown_step = 0
         self.countdown_start = 0.0
         self.pause_start = 0.0
 
-        # 10hz tick drives the state machine
         self.timer = self.create_timer(0.1, self.tick)
 
         self.get_logger().info('Game logic node ready.')
 
     def gesture_callback(self, msg):
-        # always track latest gesture
-        self.latest_gesture = msg.data
+        self.latest_gesture = msg.data # always track latest gesture
 
     def tick(self):
         now = time.time()
@@ -71,9 +68,8 @@ class GameLogicNode(Node):
                     self._pub_countdown('paper')
                 elif step == 2:
                     self._pub_countdown('scissors')
-                elif step == 3:
+                elif step == 3: # lock in gestures
                     self._pub_countdown('shoot')
-                    # lock in gestures at shoot
                     self._resolve_round()
                     self.state = 'result_pause'
                     self.pause_start = now
