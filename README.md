@@ -20,7 +20,7 @@ ROS2 • RViz2 • PyTorch • OpenCV • Python • URDF
 
 ## Challenges
 
-- Tuned the model multiple times to achieve consistent accuracy — adjusted lighting, backgrounds, learning rate, and epoch count, and addressed overfitting
+- Tuned the model multiple times to achieve consistent accuracy (adjusted lighting, backgrounds, learning rate, and epoch count, and addressed overfitting)
 - Webcam passthrough was inaccessible in WSL2 via usbipd; pivoted to a shared file bridge between the Windows inference script and the ROS2 gesture node
 
 ## Requirements
