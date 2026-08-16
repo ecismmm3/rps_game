@@ -1,4 +1,4 @@
-# Gesture-Driven Human-Robot Interaction Framework
+# Gesture-Driven Human-Robot Rock Paper Scissors Game
 
 An interactive Rock-Paper-Scissors game using ROS2 where a computer vision model classifies user hand gestures in real time and a simulated robot arm responds with randomized moves.
 
