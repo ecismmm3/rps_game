@@ -4,10 +4,6 @@
 
 An interactive Rock-Paper-Scissors game using ROS2 where a computer vision model classifies user hand gestures in real time and a simulated robot arm responds with randomized moves. Built to learn the fundamentals of robotics in ROS2, computer vision, and machine learning-based classification. 
 
-## Tech Stack
-
-ROS2 • RViz2 • PyTorch • OpenCV • Python • URDF
-
 ## Process
 
 - OpenCV script reads and processes webcam input frame by frame
