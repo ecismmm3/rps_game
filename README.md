@@ -8,7 +8,7 @@ An interactive Rock-Paper-Scissors game using ROS2 where a computer vision model
 
 ROS2 • RViz2 • PyTorch • OpenCV • Python • URDF
 
-## How It Works
+## Process
 
 - OpenCV script reads and processes webcam input frame by frame
 - Frames are run through a PyTorch model trained on 600+ images to classify rock, paper, or scissors
@@ -30,11 +30,11 @@ ROS2 • RViz2 • PyTorch • OpenCV • Python • URDF
 
 ## Setup
 
-### 1. Train your model (Windows)
+### 1. Train your model on Windows side
 - Instructions in windows/train_val.py
 - Note the class order printed at the end and update `CLASS_NAMES` in `gesture_detection.py` to match.
 
-### 2. Configure the file bridge
+### 2. Make the file bridge
 
 In `windows/gesture_detection.py`, update `GESTURE_FILE` to a path on your Windows machine:
 
@@ -48,7 +48,7 @@ In `rps_game/gesture_node.py`, update `self.gesture_file` to the same path in WS
 self.gesture_file = '/mnt/c/Users/YourName/gesture.txt'
 ```
 
-### 3. Build the ROS2 package (WSL2)
+### 3. Build the ROS2 package on WSL2 side
 
 ```bash
 cd ~/ros2_ws
